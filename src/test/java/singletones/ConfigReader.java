@@ -10,6 +10,10 @@ import java.util.Properties;
 
 public class ConfigReader {
     private static volatile ConfigReader instance;
+    /**instance - это переменная класса ConfigReader, и ключевое слово volatile здесь гарантирует, что изменения, внесенные в instance,
+     * будут сразу же видны всем другим потокам, которые могут обращаться к этой переменной.
+     * Это важно в контексте многопоточной среды, чтобы избежать проблемы "грязного чтения" (dirty reads) и обеспечить актуальное значение
+     * переменной между потоками. * */
     private final MyProperties config;
     private ConfigReader() throws IOException {
         // Создаем объект ObjectMapper для преобразования JSON в POJO
@@ -31,9 +35,9 @@ public class ConfigReader {
     public static ConfigReader getInstance() throws IOException {
         // Проверяем, был ли уже создан объект
         if (instance == null) {
-            synchronized (ConfigReader.class) {
+            synchronized (ConfigReader.class) {             // - это механизм в Java, который обеспечивает синхронизацию доступа к блоку кода или методу между потоками.
                 if (instance == null) {
-                    instance = new ConfigReader();
+                    instance = new ConfigReader(); //Этот шаблон называется "Double-Checked Locking" и используется для ленивой инициализации объекта в многопоточной среде. Он обеспечивает эффективность, так как синхронизация происходит только при первом создании объекта, и после этого проверка if (instance == null) возвращается false.
                 }
             }
         }

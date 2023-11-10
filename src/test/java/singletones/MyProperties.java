@@ -2,7 +2,7 @@ package singletones;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class MyProperties {
+public class MyProperties {           //Класс который десереализует
     private String url;
     @JsonProperty("is_secure")
     private Boolean isSecured;

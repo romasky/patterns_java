@@ -1,7 +1,7 @@
 package tests;
 
 import io.restassured.http.ContentType;
-import models.UserModel;
+import builder.UserModel;
 import org.junit.jupiter.api.Test;
 
 import static io.restassured.RestAssured.given;

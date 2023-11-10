@@ -7,7 +7,8 @@ import org.junit.jupiter.api.extension.ExtensionContext;
 import org.openqa.selenium.OutputType;
 import io.qameta.allure.Attachment;
 
-public class LogginExtension implements BeforeTestExecutionCallback, AfterTestExecutionCallback {
+
+public class LogginExtension implements BeforeTestExecutionCallback, AfterTestExecutionCallback {  //паттерн наблюдатель "Observer"
 
     @Override
     public void beforeTestExecution(ExtensionContext context) {

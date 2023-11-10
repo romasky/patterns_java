@@ -3,7 +3,7 @@ package tests;
 import decorator.LogginExtension;
 import decorator.RandomUser;
 import decorator.RandomUserResolver;
-import models.UserModel;
+import builder.UserModel;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
